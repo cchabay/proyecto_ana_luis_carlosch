@@ -18,17 +18,52 @@ data = pd.read_csv('farmacias_departamento.csv')
 # Título del Dashboard
 st.title('Dashboard Famacias')
 
-# Filtros en la Barra Lateral
-st.sidebar.header('Filtros')
-filtro_departamento = st.sidebar.multiselect('Seleccione Departamento:', data['NOMBDEPTO'].unique())
+tabs = st.tabs(["Farmacias por Departamento", "Grafica 2", "Grafica 3"])
 
-# Filtrar datos según selección
-df_filtrado = data.copy()
+with tabs[0]: 
+    # Filtros en la Barra Lateral
+    st.sidebar.header('Filtros')
+    filtro_departamento = st.sidebar.multiselect('Seleccione Departamento:', data['NOMBDEPTO'].unique())
 
-if filtro_departamento:
-    df_filtrado = df_filtrado[df_filtrado['NOMBDEPTO'].isin(filtro_departamento)]
+    # Filtrar datos según selección
+    df_filtrado = data.copy()
 
-# Visualización 1: Gráfico de Farmacias por Departamento
-st.subheader('Farmacias por Departamento')
-fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='NOMDIR', title='Total de Farmacias por Departamento')
-st.plotly_chart(fig1)
+    if filtro_departamento:
+        df_filtrado = df_filtrado[df_filtrado['NOMBDEPTO'].isin(filtro_departamento)]
+
+    # Visualización 1: Gráfico de Farmacias por Departamento
+    st.subheader('Farmacias por Departamento')
+    fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='NOMDIR', title='Total de Farmacias por Departamento')
+    st.plotly_chart(fig1)
+
+with tabs[1]:
+    # Filtros en la Barra Lateral
+    st.sidebar.header('Filtros')
+    filtro_departamento = st.sidebar.multiselect('Seleccione Departamento:', data['NOMBDEPTO'].unique())
+
+    # Filtrar datos según selección
+    df_filtrado = data.copy()
+
+    if filtro_departamento:
+        df_filtrado = df_filtrado[df_filtrado['NOMBDEPTO'].isin(filtro_departamento)]
+
+    # Visualización 1: Gráfico de Farmacias por Departamento
+    st.subheader('Farmacias por Departamento')
+    fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='NOMDIR', title='Total de Farmacias por Departamento')
+    st.plotly_chart(fig1)
+
+with tabs[2]:
+    # Filtros en la Barra Lateral
+    st.sidebar.header('Filtros')
+    filtro_departamento = st.sidebar.multiselect('Seleccione Departamento:', data['NOMBDEPTO'].unique())
+
+    # Filtrar datos según selección
+    df_filtrado = data.copy()
+
+    if filtro_departamento:
+        df_filtrado = df_filtrado[df_filtrado['NOMBDEPTO'].isin(filtro_departamento)]
+
+    # Visualización 1: Gráfico de Farmacias por Departamento
+    st.subheader('Farmacias por Departamento')
+    fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='NOMDIR', title='Total de Farmacias por Departamento')
+    st.plotly_chart(fig1)
