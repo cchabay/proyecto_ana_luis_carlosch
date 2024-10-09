@@ -33,7 +33,7 @@ with tabs[0]:
 
     # Visualización 1: Gráfico de Farmacias por Departamento
     st.subheader('Farmacias por Departamento')
-    fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='NOMDIR', title='Total de Farmacias por Departamento')
+    fig1 = px.bar(df_filtrado, x='NOMBDEPTO', y='CANT_FARMACIAS', title='Total de Farmacias por Departamento')
     st.plotly_chart(fig1)
 
 with tabs[1]:
