@@ -78,8 +78,8 @@ with tab2:
 
 with tab3:
     st.subheader('Localidades con cantidad de farmacias atípicas')
-    cuadro = st.radio('Cuadro:',options=['Localidades de mas de 3.000 habitantes sin farmacias',
-                                         'Localidades de menos de 3.000 habitantes con farmacias'],horizontal=False)
+    cuadro = st.radio('Cuadro:',options=['Localidades de mas de 3.000 habitantes sin farmacias en un radio de 1 km',
+                                         'Localidades de menos de 3.000 habitantes con farmacias en un radio de 1 km'],horizontal=False)
     if cuadro == 'Localidades de mas de 3.000 habitantes sin farmacias':
         if filtro_departamento:
             df_loc_grandes_sin_farm = df_loc_grandes_sin_farm[df_loc_grandes_sin_farm['NOMBDEPTO'].isin(filtro_departamento)]
