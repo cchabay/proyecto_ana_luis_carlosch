@@ -10,20 +10,20 @@ st.set_page_config(
     initial_sidebar_state="expanded")
 
 # Crea dataframe de farmacias por departamento
-df_farmacias_depto = pd.read_csv('farmacias_departamento.csv')
+df_farmacias_depto = pd.read_csv('data/farmacias_departamento.csv')
 
 # Crea dataframe de todas las farmacias de Uruguay
-df_farmacias = pd.read_csv('farmacias_loc_depto.csv')
+df_farmacias = pd.read_csv('data/farmacias_loc_depto.csv')
 
 # Crea dataframe loc grandes sin farmacias
-df_loc_grandes_sin_farm = pd.read_csv('loc_grandes_sin_farm.csv')
+df_loc_grandes_sin_farm = pd.read_csv('data/loc_grandes_sin_farm.csv')
 
 # Crea dataframe loc chicas con farmacias
-df_loc_chicas_con_farm = pd.read_csv('loc_chicas_con_farm.csv')
+df_loc_chicas_con_farm = pd.read_csv('data/loc_chicas_con_farm.csv')
 
 # Título del Dashboard
 st.title('INE - Dashboard Famacias')
-st.logo('logoINE_Transparente.png',size="large", link=None, icon_image=None)
+st.logo('data/logoINE_Transparente.png',size="large", link=None, icon_image=None)
 
 #tabs = st.tabs(["Total de Farmacias por Departamento", "Ubicación de Farmacias", "Grafica 3"])
 tab1,tab2,tab3=st.tabs(["Total de Farmacias por Departamento",
