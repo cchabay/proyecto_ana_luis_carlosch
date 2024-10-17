@@ -14,9 +14,7 @@ __Antecedentes:__
 	Por otra parte, el MSP rechaza la instalación si la población anteriormente descrita es
 	menor a 3.000 habitantes.
 	A los efectos de evitar inconvenientes y pérdidas de tiempo y recursos, se entiende
-	pertinente disponibilizar a los emprendedores y a los organismos encargados de aprobar
-	las solicitudes, información vinculada a la ubicación	de farmacias autorizadas y
-	la cantidad de población objetivo.
+	pertinente que el MSP pueda contar con esta herramienta y evitar que los emprendedores tengan que recurrir al INE para lograr que se apruebe el trámite.
 
 __Objetivos:__
 
