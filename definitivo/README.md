@@ -1,38 +1,46 @@
-# Proyecto: Transformación de datos y generación de Dashboard de Farmacias
+# Proyecto:
 
-Integrantes del equipo:
-	Ana Inés López
-	Luis Vázquez
-	Carlos Chabay
+# Transformación de datos y generación de Dashboard de Farmacias
+
+Integrantes del equipo: Ana Inés López, Luis Vázquez, Carlos Chabay
 
 Antecedentes:
 
 	
-    Para la habilitación de las farmacias de primera categoría, los emprendedores deben presentar ante el MSP,
-	entre otros documentos, una constancia expedida por el INE con la población que vive en un radio de 1 km
-	a la redonda de la ubicación prevista (https://www.gub.uy/tramites/habilitacion-apertura-farmacia-primera-categoria).
-	Por otra parte, el MSP rechaza la instalación si la población anteriormente descrita es menor a 3.000 hb.
-	A los efectos de evitar inconvenientes y pérdidas de tiempo y recursos, se entiende pertinente disponibilizar
-	a los emprendedores y a los organismos encargados de aprobar las solicitudes, información vinculada a la ubicación
-	de farmacias autorizadas y la cantidad de población objetivo.
+    Para la habilitación de las farmacias de primera categoría, los emprendedores deben presentar
+	ante el MSP, entre otros documentos, una constancia expedida por el INE con la población
+	que vive en un radio de 1 km a la redonda de la ubicación prevista
+	(https://www.gub.uy/tramites/habilitacion-apertura-farmacia-primera-categoria).
+	Por otra parte, el MSP rechaza la instalación si la población anteriormente descrita es
+	menor a 3.000 habitantes.
+	A los efectos de evitar inconvenientes y pérdidas de tiempo y recursos, se entiende
+	pertinente disponibilizar a los emprendedores y a los organismos encargados de aprobar
+	las solicitudes, información vinculada a la ubicación	de farmacias autorizadas y
+	la cantidad de población objetivo.
 
 Objetivos:
 
 	Los objetivos de este trabajo son:
 
-		- Calcular la cantidad de farmacias por departamento, pudiéndose filtrar la información por uno o mas departamentos.
-		- Desplegar sobre un mapa del Uruguay las farmacias georreferenciadas, pudiéndose filtrar las farmacias por uno o mas departamentos
+		- Calcular la cantidad de farmacias por departamento, pudiéndose filtrar la información
+			por uno o mas departamentos.
+		- Desplegar sobre un mapa del Uruguay las farmacias georreferenciadas, pudiéndose
+			filtrar las farmacias por uno o mas departamentos
 			y por el nombre o parte del nombre de la farmacia.
 		- Presentar dos cuadros con casos atípicos de farmacias por localidades:
-			- Localidades con mas de 3.000 habitantes que no tienen farmacias dentro de su área de influencia de 1 km
-			- Localidades con menos de 3.000 habitantes que tienen una o mas farmacias dentro de su área de influencia de 1 km
+			- Localidades con mas de 3.000 habitantes que no tienen farmacias dentro de su
+				área de influencia de 1 km
+			- Localidades con menos de 3.000 habitantes que tienen una o mas farmacias dentro
+				de su área de influencia de 1 km
 
 
 NOTAS:
  • Podría haber farmacias que no figuran en la capa usada para este trabajo.
- • Los datos de población corresponden al Censo 2011 dado que no están disponibles los del Censo 2023.
- • Este ejercicio es sólo un esbozo de lo que podría ser un servicio en la página del INE, que incluyera un mapa de las zonas censales
-	con la cantidad de personas y que los usuarios pudieran procesar en línea la población para sus áreas de interés.
+ • Los datos de población corresponden al Censo 2011 dado que no están disponibles los
+ 	del Censo 2023.
+ • Este ejercicio es sólo un esbozo de lo que podría ser un servicio en la página
+ 	del INE, que incluyera un mapa de las zonas censales con la cantidad de personas
+	y que los usuarios pudieran procesar en línea la población para sus áreas de interés.
 
 Datos originales:
 
@@ -51,25 +59,42 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 
 		2. Asociar marco a capa de zonas (resultado: Geopackage zonas_con_pob)
 
-		3. Generar área de influencia de las farmacias de radio 1 km (resultado: Geopackage buffer_1_km)
+		3. Generar área de influencia de las farmacias de radio 1 km
+			(resultado: Geopackage buffer_1_km)
 
-		4. Asignar datos de área de influencia a zonas_con_pob (resultado: Geopackage buffer_1_km)
+		4. Asignar datos de área de influencia a zonas_con_pob
+			(resultado: Geopackage buffer_1_km)
 
-		5. Exportar la tabla de zonas a nivel país con los datos asociados de cantidad de población y
-			del área de influencia de farmacia a la que pertenece si correspondiera (resultado: csv intersección_zonas_buffer)
+		5. Exportar la tabla de zonas a nivel país con los datos asociados de cantidad
+			de población y del área de influencia de farmacia a la que pertenece si
+			correspondiera (resultado: csv intersección_zonas_buffer)
 
-		W:\ServTecn\Cartogra\0_borrar\ana\PARA_CHABAY_IMAGENES\trabajo_final\datos_procesar_python
-		
 	Procesamiento python:
 
-		1. Calcular la cantidad de farmacias por departamento (resultado: csv farmacias_departamento).
+		1. Calcular la cantidad de farmacias por departamento
+			(resultado: csv farmacias_departamento).
 			Procedimiento:
-				• en tabla intersección_zonas_buffer group by DEPTO y sum _TOT_FARM_DEPTO y contar (NOMBRE y DIRECCIÓN) concatenadas
+				• en tabla intersección_zonas_buffer group by NOMBDEPTO y suma farmacias
+					(NOMBRE y DIRECCIÓN) concatenadas
+				• Crea archivo farmacias_departamento.csv con cantidad de farmacias
+					por departamento
 
-		2. Calcular la cantidad de farmacias en las localidades del interior y analizar si hay localidades de más de 3.000 habitantes que no tienen farmacias.
+
+		2. Calcular la cantidad de farmacias en las localidades del interior y analizar si
+			hay localidades de más de 3.000 habitantes que no tienen farmacias y localidades
+			de menos de 3.000 habitantes que tienen al menos una farmacia
+
 			Procedimiento:
-				• En tabla intersección_zonas_buffer group by CODLOC y sum _P_TOT y contar (NOMBRE y DIRECCIÓN) concatenadas
-				• seleccionar POBLACION > 3000 y sin farmacias
+				• En tabla intersección_zonas_buffer group by CODLOC y sum POBLACION
+				• En tabla intersección_zonas_buffer group by CODLOC y count farmacias
+				• Crea archivo loc_pob_farm.csv con población y cantidad de farmacias
+					por localidad
+				• Crea archivo loc_grandes_sin_farm.csv con localidades de más de 3.000
+					habitantes sin farmacias
+				• Crea archivo loc_chicas_con_farm.csv con localidades de menos de 3.000
+					habitantes con al menos una farmacia
+
+
 
 		3. Verificar si el área de influencia de las distintas farmacias de primera categoría es acorde con los 3.000 habitantes que indica la normativa
 			(resultado: farmacias que no cumplen que su área de influencia no llega a 3.000)
@@ -77,14 +102,3 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 				• En tabla intersección_zonas_buffer group by NOMBRE y DIRECCION y sum POBLACION y generar campo POB_RADIO_1KM
 				• Seleccionar POB_RADIO_1KM > 3.000
 				• seleccionar POB_RADIO_1KM < 3.000
-
-		4. Verificar cuántas personas están bajo el área de influencia de más de una farmacia.
-			Procedimiento:
-				• En tabla intersección_zonas_buffer frecuencia (contar registros) de codcomp.
-
-			VISUALIZAR:
-				• Total de personas y de farmacias por departamento (promedio de personas por farmacia?)
-				• Total de personas y de farmacias por localidad, indicando las localidades de más de 3.000 que no tienen farmacias?
-				• % de población a menos de 1 km de una farmacia/ total de población por localidad (o por depto.?)
-				• Total de farmacias (por departamento?) cuya área de influencia es menor a 3.000 hb
-				• Total de personas por localidad que están en más de un área de influencia.
