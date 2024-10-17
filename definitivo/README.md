@@ -92,12 +92,3 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 					habitantes sin farmacias
 				• Crea archivo loc_chicas_con_farm.csv con localidades de menos de 3.000
 					habitantes con al menos una farmacia
-
-
-
-		3. Verificar si el área de influencia de las distintas farmacias de primera categoría es acorde con los 3.000 habitantes que indica la normativa
-			(resultado: farmacias que no cumplen que su área de influencia no llega a 3.000)
-			Procedimiento:
-				• En tabla intersección_zonas_buffer group by NOMBRE y DIRECCION y sum POBLACION y generar campo POB_RADIO_1KM
-				• Seleccionar POB_RADIO_1KM > 3.000
-				• seleccionar POB_RADIO_1KM < 3.000
