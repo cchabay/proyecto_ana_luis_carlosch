@@ -13,8 +13,9 @@ __Antecedentes:__
 	(https://www.gub.uy/tramites/habilitacion-apertura-farmacia-primera-categoria).
 	Por otra parte, el MSP rechaza la instalación si la población anteriormente descrita es
 	menor a 3.000 habitantes.
-	A los efectos de evitar inconvenientes y pérdidas de tiempo y recursos, se entiende
-	pertinente que el MSP pueda contar con esta herramienta y evitar que los emprendedores tengan que recurrir al INE para lograr que se apruebe el trámite.
+	A los efectos de evitar inconvenientes y pérdidas de tiempo y recursos, se entiende	pertinente
+	que el MSP pueda contar con esta herramienta y evitar que los emprendedores tengan que recurrir
+	al INE para lograr que se apruebe el trámite.
 
 __Objetivos:__
 
