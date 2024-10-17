@@ -52,8 +52,8 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 
 • __Procedimiento:__
 
-	___En QGIS:___
-
+	En QGIS:
+	
 		1. Incorporar las dos capas y el marco
 
 		2. Asociar marco a capa de zonas (resultado: Geopackage zonas_con_pob)
@@ -68,7 +68,7 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 			de población y del área de influencia de farmacia a la que pertenece si
 			correspondiera (resultado: csv intersección_zonas_buffer)
 
-	___Procesamiento python:___
+	Procesamiento python:
 
 		1. Calcular la cantidad de farmacias por departamento
 			(resultado: csv farmacias_departamento).
