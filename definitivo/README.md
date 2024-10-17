@@ -2,9 +2,9 @@
 
 # Transformación de datos y generación de Dashboard de Farmacias
 
-Integrantes del equipo: Ana Inés López, Luis Vázquez, Carlos Chabay
+Integrantes del equipo: __Ana Inés López, Luis Vázquez, Carlos Chabay__
 
-Antecedentes:
+__Antecedentes:__
 
 	
     Para la habilitación de las farmacias de primera categoría, los emprendedores deben presentar
@@ -18,7 +18,7 @@ Antecedentes:
 	las solicitudes, información vinculada a la ubicación	de farmacias autorizadas y
 	la cantidad de población objetivo.
 
-Objetivos:
+__Objetivos:__
 
 	Los objetivos de este trabajo son:
 
@@ -34,7 +34,7 @@ Objetivos:
 				de su área de influencia de 1 km
 
 
-NOTAS:
+__NOTAS:__
  • Podría haber farmacias que no figuran en la capa usada para este trabajo.
  • Los datos de población corresponden al Censo 2011 dado que no están disponibles los
  	del Censo 2023.
@@ -42,7 +42,7 @@ NOTAS:
  	del INE, que incluyera un mapa de las zonas censales con la cantidad de personas
 	y que los usuarios pudieran procesar en línea la población para sus áreas de interés.
 
-Datos originales:
+__Datos originales:__
 
 Archivo | Datos que contiene | Formato | Ubicación |
 -------- | -------- | ------- | ------- |
@@ -50,10 +50,9 @@ Marco_2011 | Marco censo 2011  | dbf | https://www.gub.uy/instituto-nacional-est
 Ine_zonas_11 | Capa de zonas censo 2011 | shp | https://www.gub.uy/instituto-nacional-estadistica/datos-y-estadisticas/estadisticas/mapas-vectoriales-ano-2011 |
 Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos de Geomática |
 
-	
+• __Procedimiento:__
 
-• Procedimiento:
-	En QGIS:
+	*En QGIS:*
 
 		1. Incorporar las dos capas y el marco
 
@@ -69,7 +68,7 @@ Farmacias | Farmacias habilitadas de primera categoría | gpck | Base de datos d
 			de población y del área de influencia de farmacia a la que pertenece si
 			correspondiera (resultado: csv intersección_zonas_buffer)
 
-	Procesamiento python:
+	*Procesamiento python:*
 
 		1. Calcular la cantidad de farmacias por departamento
 			(resultado: csv farmacias_departamento).
